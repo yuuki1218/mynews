@@ -8,17 +8,17 @@
         <title>MyNews</title>
     </head>
     <body>
-        <h1>プロフィール作成画面</h1>
+        <h1>Myニュース作成画面</h1>
         
-        @extends('layouts.profile')
+        @extends('layouts.admin')
         
-        @section('title','プロフィール作成画面')
+        @section('title','ニュースの新規作成')
         
         @section('content')
         <div class="container">
             <div class="row">
-                <div class="col-md8 mx-auto">
-                    <h2>プロフィール作成画面</h2>
+                <div class="col-md-8 mx-auto">
+                    <h2>ニュース新規作成</h2>
                 </div>
             </div>
         </div>
