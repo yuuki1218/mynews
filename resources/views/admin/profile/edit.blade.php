@@ -5,19 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>MyNews</title>
+        <title>Myprofile</title>
     </head>
     <body>
         
-        @extends('layouts.profile')
+        @extends('layouts.adimin')
         
-        @section('title',ニュース作成画面')
+        @section('title',プロフィール作成画面')
         
         @section('content')
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <h2>Myニュース作成画面</h2>
+                    <h2>プロフィール作成画面</h2>
                 </div>
             </div>
         </div>
