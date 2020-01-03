@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
+use App\Mines;
+use Carbon\Carbon;
+
 
 class ProfileController extends Controller
 {
@@ -40,16 +43,22 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-         $this->validate($request, Profile::$rules);
+      $this->validate($request, Profile::$rules);
       
-      $news = Profile::find($request->id);
+      $profile = Profiles::find($request->id);
       
       $profile_form = $request->all();
       unset($profile_form['_token']);
+      
 
     
       $profile->fill($profile_form)->save();
+        $mines = new Mines;
+        $mines->creaters_id=$profile->id;
+        $mines->edited_id=Carbon::now();
+        $mines->save();
         return redirect('admin/profile');
+        
     }
     
     
