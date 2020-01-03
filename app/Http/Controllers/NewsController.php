@@ -17,7 +17,7 @@ class NewsController extends Controller
         } else {
             $headline=null;
         }
-        return view('news.index',['headline'=>$headline, 'posts=>$posts']);
+        return view('news.index',['headline'=>$headline, 'posts'=>$posts]);
     }
     
 }

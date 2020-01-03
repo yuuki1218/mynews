@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin'], function() {
 
  Route::get('/','NewsController@index');
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
