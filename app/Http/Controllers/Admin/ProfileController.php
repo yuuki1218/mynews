@@ -45,17 +45,16 @@ class ProfileController extends Controller
     {
       $this->validate($request, Profile::$rules);
       
-      $profile = Profiles::find($request->id);
+      $profile = Profile::find($request->id);
       
       $profile_form = $request->all();
       unset($profile_form['_token']);
       
-
-    
-      $profile->fill($profile_form)->save();
+       $profile->fill($profile_form)->save();
+       
         $mines = new Mines;
-        $mines->creaters_id=$profile->id;
-        $mines->edited_id=Carbon::now();
+        $mines->$profile->id;
+        $mines->edited_at=Carbon::now();
         $mines->save();
         return redirect('admin/profile');
         

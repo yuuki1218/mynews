@@ -10,6 +10,8 @@ class Mines extends Model
     
     public static $rules = array(
         'creaters_id'=>'required',
-        'edited_id'=>'required',
+        'edited_at'=>'required',
+        'profile_id'=>'required',
+        
         );
 }
