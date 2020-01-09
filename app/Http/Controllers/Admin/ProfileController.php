@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
-use App\Mines;
+use App\Mine;
 use Carbon\Carbon;
 
 
@@ -23,12 +23,19 @@ class ProfileController extends Controller
         $form = $request->all();
         
         unset($form['_token']);
-        unset($form['image']);
+        
         
         $profile->fill($form);
         $profile->save();
        
         return redirect('admin/profile/create');
+    }
+    
+    public function index()
+    {
+      
+       return view('admin.profile.index');
+        
     }
     
    
@@ -52,11 +59,11 @@ class ProfileController extends Controller
       
        $profile->fill($profile_form)->save();
        
-        $mines = new Mines;
-        $mines->$profile->id;
-        $mines->edited_at=Carbon::now();
-        $mines->save();
-        return redirect('admin/profile');
+        $mine = new Mine;
+        $mine->profile_id=$profile->id;
+        $mine->edited_at = Carbon::now();
+        $mine->save();
+        return redirect('admin/profile/edit?id=1');
         
     }
     

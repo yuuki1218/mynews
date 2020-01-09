@@ -22,7 +22,6 @@ class NewsController extends Controller
 
       // Varidationを行う
       $this->validate($request, News::$rules);
-
       $news = new News;
       $form = $request->all();
 
@@ -71,11 +70,7 @@ class NewsController extends Controller
   {
       
       $this->validate($request, News::$rules);
-      
-      
       $news = News::find($request->id);
-      
-      
       $news_form = $request->all();
       if ($request->remove == 'true') {
           $news_form['image_path']=null;
@@ -90,12 +85,10 @@ class NewsController extends Controller
       unset($news_form['image']);
       unset($news_form['remove']);
       
-
-      // 該当するデータを上書きして保存する
       $news->fill($news_form)->save();
       
       $history=new History;
-      $history->news_id=$news->id;
+      $history->news_id = $news->id;
       $history->edited_at=Carbon::now();
       $history->save();
 

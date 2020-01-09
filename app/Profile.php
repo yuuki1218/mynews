@@ -17,6 +17,6 @@ class Profile extends Model
 
     public function mines()
     {
-        return $this->hasMany('App\Mines');
+        return $this->hasMany('App\Mine');
     }
 }

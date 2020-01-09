@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mines extends Model
+class Mine extends Model
 {
     protected $guarded = array('id');
     

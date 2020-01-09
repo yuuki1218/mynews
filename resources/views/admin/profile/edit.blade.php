@@ -1,12 +1,12 @@
  @extends('layouts.admin')
         
-        @section('title','プロフィール作成画面')
+        @section('title','プロフィール編集画面')
         
         @section('content')
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <h2>プロフィール作成画面</h2>
+                    <h2>プロフィール編集画面</h2>
                     <form action="{{ action('Admin\ProfileController@update') }}" method="post" enctype="multipart/form-data">
                         @if (count($errors) > 0)
                         <ul>
@@ -52,8 +52,8 @@
                         <h2>編集履歴</h2>
                         <ul class="list-group">
                             @if ($profile_form->mines != NULL)
-                                @foreach ($profile_form->mines as $mines)
-                                    <li class="list-group-item">{{ $mines->edited_id }}</li>
+                                @foreach ($profile_form->mines as $mine)
+                                    <li class="list-group-item">{{ $mine->edited_at }}</li>
                                 @endforeach
                             @endif
                         </ul>
