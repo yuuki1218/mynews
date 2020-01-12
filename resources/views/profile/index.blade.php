@@ -1,32 +1,42 @@
-@extends('layouts.front')
+  
+@extends('layouts.profile_front') 
 
-@section('file')
+@section('profile','プロフィール表示ページ')
+
+
+@section('content')
 <div class="container">
-    <hr color="#c0c0c0">
-    @if (!is_null($headline))
     <div class="row">
-        <div class="headline col-md-10 mx-auto">
-            @endif
-            @foreach($posts as $post)
-            <div class="post">
-                <div class ="row">
-                    <div class="text col-md-6">
+        <h2>マイプロフィール</h2>
+    </div>
                         
-                    </div>
-                </div> 
-            </div>
-            
-            <div class="name">
-                <div class="gender">
-                    <div class="hobby">
-                        <div class="introduction">
-                            
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th width="10%">ID</th>
+                                <th width="20%">氏名</th>
+                                <th width="10%">性別</th>
+                                <th width="20%">趣味</th>
+                                <th width="30%">自己紹介</th>
+                            </tr>
+                        </thead>
+                                    
+                        <tbody>
+                                <tr>
+                                    <td>{{ $profiles->id }}</td>
+                                    <td>{{ $profiles->name }}</td>
+                                    <td>{{ $profiles->gender }}</td>
+                                    <td>{{ \Str::limit($profiles->hobby,150) }}</td>
+                                    <td>{{ \Str::limit($profiles->introduction,250) }}</td>
+                                </tr>
+                        </tbody>
+                   </table>
                 </div>
             </div>
-            @endforeach
-            </div>
+        
         </div>
-    </div>
+</div>
 @endsection

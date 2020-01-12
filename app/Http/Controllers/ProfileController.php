@@ -1,25 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\HTML;
 use App\Profile;
-
 class ProfileController extends Controller
 {
-     public function index(Request $request)
-    {
-        $posts = Profile::all()->sortByDesc('updated_at');
-
-        if (count($posts) > 0) {
-            $headline = $posts->shift();
-        } else {
-            $headline = null;
-        }
-
+    public function index(Request $request){
         
-        
-        return view('profile.index', ['headline' => $headline, 'posts' => $posts]);
+        $profiles =profile::find($request->id);
+        if(empty($profiles)){
+  abort(404);
+ }
+        return view('profile.index', ['profiles' => $profiles]);
     }
 }
