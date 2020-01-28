@@ -23,12 +23,21 @@
                       <th widdh="20%">自己紹介</th>
                   </tr>
                   </thead>
+                  <tbody>
+                      @foreach($posts as $profile)
+                      <tr>
+                          <th>{{ $profile->id }}</th>
+                          <td>{{ $profile->name }}</td>
+                          <td>{{ $profile->gender }}</td>
+                          <td>{{ $profile->hobby }}</td>
+                          <td>{{ $profile->introduction }}</td>
+                      </tr>
+                      @endforeach
+                  </tbody>
               </table>
           </div>
       </div>
   </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection

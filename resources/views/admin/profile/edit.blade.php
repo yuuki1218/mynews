@@ -23,9 +23,8 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ $profile_form->gender }}">
-                        </div>
+                            <input type ="radio" name ="gender" value="男性" @if(old('gender',"$profile_form->gender")!='女性')checked="checked"@endif>男性
+                            <input type ="radio" name ="gender" value="女性" @if(old('gender',"$profile_form->gender")!='男性')checked="checked"@endif>女性
                     </div>
                      <div class="form-group row">
                         <label class="col-md-2" for="hobby">趣味</label>
@@ -44,7 +43,9 @@
                             <input type="hidden" name="id" value="{{ $profile_form->id }}">
                             {{ csrf_field() }}
                             <input type="submit" class="btn btn-primary" value="更新">
-                        </div>
+                            <div class="form-group row">
+                        <div class="col-md-10">
+                      <a type="submit" href="{{ action('Admin\ProfileController@delete', ['id'=>$profile_form->id]) }}">削除</a>
                     </div>
                     </form>
                     <div class="row mt-5">
@@ -58,7 +59,7 @@
                             @endif
                         </ul>
                     </div>
-                </div>
+                  </div>
                 </div>
             </div>
         </div>

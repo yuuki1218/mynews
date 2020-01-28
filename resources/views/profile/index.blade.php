@@ -1,8 +1,6 @@
   
 @extends('layouts.profile_front') 
-
-@section('profile','プロフィール表示ページ')
-
+@section('profile','プロフィールの表示')
 
 @section('content')
 <div class="container">
@@ -16,7 +14,6 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
                                 <th width="20%">氏名</th>
                                 <th width="10%">性別</th>
                                 <th width="20%">趣味</th>
@@ -26,7 +23,6 @@
                                     
                         <tbody>
                                 <tr>
-                                    <td>{{ $profiles->id }}</td>
                                     <td>{{ $profiles->name }}</td>
                                     <td>{{ $profiles->gender }}</td>
                                     <td>{{ \Str::limit($profiles->hobby,150) }}</td>

@@ -31,10 +31,10 @@ class ProfileController extends Controller
         return redirect('admin/profile/create');
     }
     
-    public function index()
+    public function index(Request $request)
     {
-      
-       return view('admin.profile.index');
+      $posts = Profile::all();
+       return view('admin.profile.index',['posts => $posts']);
         
     }
     
@@ -66,6 +66,15 @@ class ProfileController extends Controller
         return redirect('admin/profile/edit?id=1');
         
     }
-    
+  public function delete(Request $request)
+  {
+     $profile_form = Profile::find($request->id);
+     $profile_form->delete();
+     return redirect('admin/profile/create');
+  }  
+
+
     
 }
+
+
