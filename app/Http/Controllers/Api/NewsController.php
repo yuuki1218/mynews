@@ -20,4 +20,11 @@ class NewsController extends Controller
            の方がスマート
         */
     }    
+    
+    public function add(Request $request)
+    {
+        $add = new News;
+        $add -> fill(['add' => "hello"]);
+        $add -> save();
+    }
 }

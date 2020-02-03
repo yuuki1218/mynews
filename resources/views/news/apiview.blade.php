@@ -29,6 +29,8 @@
 
         <h5>【課題】newsテーブルにデータを保存できるadd_newsボタンのAjaxを実装しましょう（値は決め打ちでokです）</h5>
         <button id='add_news'>add news</button>
+        
+        
         <br>
         ヒント：
         <ul>

@@ -30,7 +30,9 @@ class NewsController extends Controller
     }
     
     public function apiview(Request $request){
+     
         return view('news.apiview');
+        
     }
     
 }

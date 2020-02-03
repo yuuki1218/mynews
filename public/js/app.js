@@ -49339,8 +49339,18 @@ $(function () {
       }
 
       $('.news').append(row);
-    }).fail(function () {
-      alert('エラー');
+    })
+    /* エラー時の処理。statusでHTTPステータスコードを、errorでエラーの内容を確認できます。 */
+    .fail(function (xhr, status, error) {
+      alert('エラー'); //add_newsを押すとデータベースに値を保存
+
+      $('#add_news').click('on', function () {
+        $.ajax({
+          url: '/apiview',
+          type: 'POST',
+          data: {}
+        });
+      });
     });
   });
 });
