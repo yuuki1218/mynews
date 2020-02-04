@@ -37,10 +37,24 @@ $(function() {
            
     
      //add_newsを押すとデータベースに値を保存
-   $('#add_news').click('on', function(){
-       
-       })
-   })
+ $( function() {
+    $( '#add_news' ) .click('on', function() {
+        var hostUrl= '/api/add'
+        var param1 = 100;
+        var param2 = 200;
+        $.ajax({
+            url: hostUrl,
+            type:'POST',
+            dataType: 'json',
+            data : {parameter1 : param1, parameter2 : param2 },
+        }).done(function(data) {
+                          alert("ok");
+        }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+                         alert("error");
+        })
+    });
+} );
+   
 
         });
     })
