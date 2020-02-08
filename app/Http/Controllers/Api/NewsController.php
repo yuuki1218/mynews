@@ -24,7 +24,11 @@ class NewsController extends Controller
     public function add(Request $request)
     {
         $add = new News;
-        $add -> fill(['add' => "hello"]);
+        $add = $request->input('title','body');
+        $add -> fill(['title' => "hello" , "body => thank you"]);
         $add -> save();
+        
     }
+
+    
 }

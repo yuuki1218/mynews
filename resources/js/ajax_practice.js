@@ -10,6 +10,10 @@ $(function() {
         var msg = '<p>hello</p>';
         $('.target_hello').append(msg); 
     });
+     $('#add_news').click('on',function(){
+        var msg = '<p>hello</p>';
+        $('.add').append(msg); 
+      });
 
     //通信して取得したデータを元に、HTMLを追加することもできる
     $('#get_news').click('on', function(){
@@ -34,30 +38,25 @@ $(function() {
      /* エラー時の処理。statusでHTTPステータスコードを、errorでエラーの内容を確認できます。 */
         .fail(function(xhr, status, error) {
               alert('エラー');
-           
-    
-     //add_newsを押すとデータベースに値を保存
- $( function() {
-    $( '#add_news' ) .click('on', function() {
-        var hostUrl= '/api/add'
-        var param1 = 100;
-        var param2 = 200;
-        $.ajax({
-            url: hostUrl,
-            type:'POST',
-            dataType: 'json',
-            data : {parameter1 : param1, parameter2 : param2 },
-        }).done(function(data) {
-                          alert("ok");
-        }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
-                         alert("error");
+     
         })
     });
-} );
-   
-
-        });
-    })
+         //add_newsを押すとデータベースに値を保存
+    $( '#add_news' ).click('on', function() {
+        $.ajax({
+            url: '/api/add',
+            type:'POST',
+            dataType: 'json',
+            data : {title:"hello" , body:"thank you"},
+            
+        })
+        .done(function(){
+                alert('保存されました。')
+        })
+        .fail(function(xhr,status,error){
+            alert('error');
+        })
+    });
 });
 
 /*
